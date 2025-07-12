@@ -6,6 +6,7 @@ import { getSystemColorScheme } from "./helpers/utils";
 import useNavigateTo from "./hooks/useNavigateTo";
 import { userStore, workspaceStore } from "./store";
 import { loadTheme } from "./utils/theme";
+import CommandPalette from "@/components/CommandPalette";
 
 const App = observer(() => {
   const { i18n } = useTranslation();
@@ -111,7 +112,12 @@ const App = observer(() => {
     }
   }, [userSetting?.theme]);
 
-  return <Outlet />;
+  return (
+    <>
+      <CommandPalette />
+      <Outlet />
+    </>
+  );
 });
 
 export default App;
